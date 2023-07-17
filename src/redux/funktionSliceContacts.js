@@ -1,4 +1,4 @@
-import Notiflix from "notiflix";
+
 
 // export const handelPending = state => {
 //     state.isLoading = true;
