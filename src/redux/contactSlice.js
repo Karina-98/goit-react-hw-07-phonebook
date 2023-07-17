@@ -1,5 +1,6 @@
-import { createSlice } from '@reduxjs/toolkit';
-import { nanoid } from 'nanoid';
+import { createSlice } from "@reduxjs/toolkit";
+
+
 
 const contactsBook = {
   items: [],
