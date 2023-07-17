@@ -1,18 +1,23 @@
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Conteiner, Input } from "./Filter.styled";
 import { setFilter } from "redux/filterSlice";
+import { getContacts } from "redux/selectors";
+
 
 export const Filter = () => {
   const dispatch = useDispatch()
   
+  const contacts = useSelector(state=>state)
+  console.log(contacts)
   const onChange = (e) => {
   
     dispatch(setFilter(e.target.value))
   }
 
 
-  return (
-    <Conteiner>
+  return (<>
+    {contacts.length > 0 ?
+    (<Conteiner>
       <p>Find contacts by name</p>
       <Input
         type="text"
@@ -20,6 +25,9 @@ export const Filter = () => {
         placeholder="Enter name"
         onChange={onChange}
       />
-    </Conteiner>
+    </Conteiner>) : (<p>Please add your first contact</p>)}
+    
+  
+    </>
   );
 };

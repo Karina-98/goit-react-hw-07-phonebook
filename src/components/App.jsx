@@ -6,14 +6,21 @@ import { Filter } from './Filter/Filter';
 import { ContactList } from './ContactList/ContactList';
 
 import { Container } from './App.styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { getAllContacts } from 'service/getApi';
+import { useEffect } from 'react';
 import { getContacts } from 'redux/selectors';
 
 
 export const App = () => {
-
+  const dispatch = useDispatch();
 const contacts = useSelector(getContacts)
 console.log(contacts)
+useEffect(() => {
+   dispatch(getAllContacts());
+ 
+}, [dispatch]);
 
    return (
     <Container>
@@ -21,15 +28,10 @@ console.log(contacts)
       <ContactForm />
 
       <Titles>Contacts</Titles>
-      {contacts.length > 0 ? (
+      
         <Filter  />
-      ) : (
-        <p>Your phonebook is empty. Add first contact!</p>
-      )}
-      {contacts.length > 0 && <ContactList
-        contacts={contacts}
-        // deleteContact={onDeleteContact}
-      /> }
+     
+    <ContactList/>
       
     </Container>
   );
