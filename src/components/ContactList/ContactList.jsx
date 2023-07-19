@@ -4,7 +4,7 @@ import { getContacts, getFilter } from "redux/selectors";
 import {deleteContacts} from 'service/getApi'
 
 import { Loader } from "components/Loader/Loader";
-import { useEffect } from "react";
+
 
 
 
