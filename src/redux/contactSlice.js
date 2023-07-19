@@ -35,7 +35,7 @@ export const handelFulfilledCreate = (state, actions) => {
 
 export const handelFulfilledDel = (state, actions) => {
   state.contacts.isLoading = false;
-  state.contacts.items = state.contacts.items.filter(item => item.id !== actions.payload);
+  state.contacts.items = state.contacts.items.filter(item => item.id !== actions.payload.id);
   state.contacts.error = null;
 };
 

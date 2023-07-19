@@ -2,14 +2,14 @@
 import React from 'react';
 import { ButtonAdd, Conteiner, Form, Input } from './ContactForm.styled';
 import { getContacts } from 'redux/selectors';
-import {  useSelector } from 'react-redux';
+import {  useSelector, useDispatch } from 'react-redux';
 import Notiflix from 'notiflix';
 
 import { createContacts } from 'service/getApi';
 
 export const ContactForm = () => {
 
-
+const dispatch = useDispatch()
   const contacts = useSelector(getContacts);
 
   const handelSubmit = event => {
@@ -24,7 +24,7 @@ export const ContactForm = () => {
 
       return;
     } else {
-      createContacts(contact)
+      dispatch(createContacts(contact))
     }
 
     event.target.reset();
