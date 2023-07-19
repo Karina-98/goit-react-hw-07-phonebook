@@ -8,7 +8,7 @@ import { getContacts } from "redux/selectors";
 export const Filter = () => {
   const dispatch = useDispatch()
   
-  // const contacts = useSelector(getContacts)
+  const contacts = useSelector(getContacts)
  
   const onChange = (e) => {
   
@@ -17,8 +17,8 @@ export const Filter = () => {
 
 
   return (<>
-    {/* {contacts.length > 0 ? */}
-    {/* ( */}
+    {contacts.length > 0 ?
+     (
       <Conteiner>
       <p>Find contacts by name</p>
       <Input
@@ -28,9 +28,9 @@ export const Filter = () => {
         onChange={onChange}
       />
     </Conteiner>
-    {/* ) : ( */}
-      <p>Please add your first contact</p>
-      {/* )} */}
+    ) : ( 
+      <p>Please add your first contact</p>)
+     }
     
   
     </>
