@@ -8,8 +8,8 @@ import { getContacts } from "redux/selectors";
 export const Filter = () => {
   const dispatch = useDispatch()
   
-  const contacts = useSelector(getContacts)
-  console.log(contacts)
+  // const contacts = useSelector(getContacts)
+ 
   const onChange = (e) => {
   
     dispatch(setFilter(e.target.value))
@@ -17,8 +17,9 @@ export const Filter = () => {
 
 
   return (<>
-    {contacts.length > 0 ?
-    (<Conteiner>
+    {/* {contacts.length > 0 ? */}
+    {/* ( */}
+      <Conteiner>
       <p>Find contacts by name</p>
       <Input
         type="text"
@@ -26,7 +27,10 @@ export const Filter = () => {
         placeholder="Enter name"
         onChange={onChange}
       />
-    </Conteiner>) : (<p>Please add your first contact</p>)}
+    </Conteiner>
+    {/* ) : ( */}
+      <p>Please add your first contact</p>
+      {/* )} */}
     
   
     </>

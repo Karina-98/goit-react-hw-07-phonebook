@@ -8,14 +8,14 @@ import { Loader } from "components/Loader/Loader";
 
 
 export const ContactList = () => {
-  const {  error, isLoading} = useSelector(state=>state.contacts);
+  const {  error, isLoading} = useSelector(state=>state.contacts.contacts);
  const contacts = useSelector(getContacts);
   const filter = useSelector(getFilter);
 
 const filtredContacts = contacts?.filter(contact =>
   contact.name.toLowerCase().includes(filter.toLowerCase()))
 
-console.log(contacts)
+
   const deletContact = (id) =>{
 deletContact(id);
   }
@@ -23,9 +23,9 @@ deletContact(id);
   return (<>
   {isLoading && <Loader></Loader>}
     <List>
-      {filtredContacts.map(({ id, name, number }) => (
+      {filtredContacts.map(({ id, name, phone }) => (
         <ContactItem key={id}>
-          {name}: {number}
+          {name}: {phone}
           <ButtonDelete type="button" onClick={deletContact}>Delete</ButtonDelete>
         </ContactItem>
       ))}
